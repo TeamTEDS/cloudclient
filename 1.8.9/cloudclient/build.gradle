@@ -54,6 +54,7 @@ repositories {
 
 dependencies {
     embed('org.spongepowered:mixin:0.7.11-SNAPSHOT')
+    embed files('lib/discord-rpc.jar')
 }
 
 processResources {
