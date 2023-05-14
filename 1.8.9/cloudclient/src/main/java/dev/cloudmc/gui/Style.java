@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class Style {
 
-    private static boolean darkMode = false;
+    private static boolean darkMode = true;
     private static boolean snapping = true;
 
     /**
@@ -21,7 +21,7 @@ public class Style {
 
     public static Color getColor(int transparency) {
         return isDarkMode() ?
-                new Color(0, 0, 0, transparency) :
+                new Color(50, 50, 50, transparency) :
                 new Color(255, 255, 255, transparency);
     }
 
@@ -35,7 +35,7 @@ public class Style {
     public static Color getReverseColor(int transparency) {
         return Style.isDarkMode() ?
                 new Color(255, 255, 255, transparency) :
-                new Color(0, 0, 0, transparency);
+                new Color(50, 50, 50, transparency);
     }
 
     /**

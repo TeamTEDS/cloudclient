@@ -98,9 +98,9 @@ public class HudEditor extends GuiScreen {
                 color
         );
         Helper2D.drawPicture(
-                width / 2 - 25,
-                height / 2 - 8 - animateLogo.getValueI(),
-                50, 50, Style.getColor(70).getRGB(), "cloudlogo.png"
+                width / 2 - 25 - 10,
+                height / 2 - 8 - animateLogo.getValueI() - 10,
+                70, 70, color, "cloudlogo.png"
         );
         GLHelper.endScissor();
 
@@ -114,8 +114,8 @@ public class HudEditor extends GuiScreen {
                 roundedCorners ? 0 : -1
         );
         Cloud.INSTANCE.fontHelper.size20.drawString(
-                "Open Mods",
-                width / 2f - Cloud.INSTANCE.fontHelper.size20.getStringWidth("Open Mods") / 2f,
+                "Mods",
+                width / 2f - Cloud.INSTANCE.fontHelper.size20.getStringWidth("Mods") / 2f,
                 height / 2f,
                 color
         );

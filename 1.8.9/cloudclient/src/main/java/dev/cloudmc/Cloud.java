@@ -19,6 +19,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import org.lwjgl.opengl.Display;
 
 import java.io.FileNotFoundException;
@@ -36,8 +37,8 @@ public class Cloud {
     public static Cloud INSTANCE;
 
     public static final String modID = "cloudmc";
-    public static final String modName = "Cloud";
-    public static final String modVersion = "1.4.1 [1.8.9]";
+    public static final String modName = "TEDS Client";
+    public static final String modVersion = "1.0.0 [1.8.9]";
 
     public Minecraft mc = Minecraft.getMinecraft();
 
@@ -48,6 +49,7 @@ public class Cloud {
     public FontHelper fontHelper;
     public CpsHelper cpsHelper;
     public MessageHelper messageHelper;
+    public DiscordRP discordRP;
 
     /**
      * Initializes the client
@@ -62,7 +64,8 @@ public class Cloud {
                 optionManager = new OptionManager(),
                 hudEditor = new HudEditor(),
                 fontHelper = new FontHelper(),
-                messageHelper = new MessageHelper()
+                messageHelper = new MessageHelper(),
+                discordRP = new DiscordRP()
         );
 
         try {
@@ -78,15 +81,25 @@ public class Cloud {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
                 ConfigSaver.saveConfig();
+                discordRP.shutdown();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }));
     }
 
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        discordRP.start();
+    };
+
     private void registerEvents(Object... events) {
         for (Object event : events) {
             MinecraftForge.EVENT_BUS.register(event);
         }
+    }
+
+    public DiscordRP getDiscordRP() {
+        return discordRP;
     }
 }

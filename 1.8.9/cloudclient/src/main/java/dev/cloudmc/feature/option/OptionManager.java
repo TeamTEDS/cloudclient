@@ -20,7 +20,7 @@ public class OptionManager {
 
     public void init() {
         addOption(new Option("Style"));
-        addOption(new Option("Font Changer", "Arial", 0,
+        addOption(new Option("Font Changer", "Segoe UI Semibold", 0,
                 GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames()));
         addOption(new Option("Color", new Color(255, 255, 255), new Color(255, 0, 0), 0, new float[]{0, 0}));
 

@@ -101,7 +101,7 @@ public class TitleScreen extends Panorama {
     private void drawLogo() {
         GlyphPageFontRenderer fontRenderer = Cloud.INSTANCE.fontHelper.size40;
         fontRenderer.drawString(Cloud.modName, width / 2f - fontRenderer.getStringWidth(Cloud.modName) / 2f, height / 2f - 27.5f, -1);
-        Helper2D.drawPicture(width / 2 - 30, height / 2 - 78, 60, 60, 0x40ffffff, "cloudlogo.png");
+        Helper2D.drawPicture(width / 2 - 30 - 36, height / 2 - 78 - 50, 128, 128, 0xffffffff, "cloudlogo.png");
     }
 
     /**
@@ -111,7 +111,7 @@ public class TitleScreen extends Panorama {
     private void drawCopyright() {
         GlyphPageFontRenderer fontRenderer = Cloud.INSTANCE.fontHelper.size20;
         String copyright = "Copyright Mojang Studios. Do not distribute!";
-        String text = Cloud.modName + " Client " + Cloud.modVersion;
+        String text = Cloud.modName + " " + Cloud.modVersion;
         fontRenderer.drawString(copyright, width - fontRenderer.getStringWidth(copyright) - 2, height - fontRenderer.getFontHeight(), 0x50ffffff);
         fontRenderer.drawString(text, 4, height - fontRenderer.getFontHeight(), 0x50ffffff);
     }
